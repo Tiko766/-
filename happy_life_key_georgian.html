@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Life Key | ტრანსფორმაცია მადლიერებით</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --warm-gold: #D4A574;
+            --soft-coral: #E8A87C;
+            --sage-green: #A8B5A0;
+            --cream: #FAF7F2;
+            --charcoal: #2C3E50;
+            --light-sage: #E8EDE6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--warm-gold);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--warm-gold);
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 5% 5rem;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--light-sage) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 165, 116, 0.15);
+            color: var(--warm-gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+        
+        .hero h1 span {
+            color: var(--warm-gold);
+            position: relative;
+        }
+        
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(212, 165, 116, 0.3);
+            z-index: -1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-primary {
+            background: var(--warm-gold);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--charcoal);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--warm-gold);
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--warm-gold);
+            color: white;
+        }
+        
+        .transformation-note {
+            font-size: 0.9rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 2.5rem;
+        }
+        
+        .shape-1 { top: 20%; left: 10%; animation: drift 25s infinite; }
+        .shape-2 { top: 60%; right: 15%; animation: drift 30s infinite reverse; }
+        .shape-3 { bottom: 30%; left: 20%; animation: drift 20s infinite; }
+        
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+        
+        .transformation-philosophy {
+            padding: 6rem 5%;
+            background: white;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .transformation-philosophy h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+        
+        .transformation-philosophy > p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .transformation-box {
+            background: var(--light-sage);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+            border: 2px dashed var(--sage-green);
+        }
+        
+        .transformation-box-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .transformation-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+        
+        .transformation-box p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .how-it-works {
+            padding: 6rem 5%;
+            background: var(--light-sage);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .step:hover {
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--warm-gold);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .step h3 {
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+        
+        .step p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .course-content {
+            padding: 6rem 5%;
+            background: white;
+        }
+        
+        .modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .module-card {
+            background: var(--cream);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .module-header {
+            background: linear-gradient(135deg, var(--warm-gold), var(--soft-coral));
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+        }
+        
+        .module-number {
+            font-size: 3rem;
+            font-weight: 700;
+            opacity: 0.3;
+            position: absolute;
+            top: 0.5rem;
+            right: 1rem;
+        }
+        
+        .module-header h3 {
+            position: relative;
+            z-index: 1;
+            font-size: 1.3rem;
+        }
+        
+        .module-body {
+            padding: 1.5rem;
+        }
+        
+        .module-body ul {
+            list-style: none;
+        }
+        
+        .module-body li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #555;
+        }
+        
+        .module-body li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--sage-green);
+            font-weight: 600;
+        }
+        
+        .donation-after {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--charcoal) 0%, #1a252f 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .donation-after h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .donation-after > p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        
+        .donation-options {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .donation-option {
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(212, 165, 116, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            min-width: 180px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .donation-option:hover {
+            border-color: var(--warm-gold);
+            background: rgba(212, 165, 116, 0.1);
+            transform: scale(1.05);
+        }
+        
+        .donation-option .label-top {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .donation-option .amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--warm-gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .donation-option .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .custom-donation {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .custom-donation p {
+            margin-bottom: 1rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        .custom-donation input {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .custom-donation input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .btn-donate {
+            width: 100%;
+            background: var(--warm-gold);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-donate:hover {
+            background: var(--soft-coral);
+            transform: translateY(-2px);
+        }
+        
+        .donation-note {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .testimonials {
+            padding: 6rem 5%;
+            background: var(--light-sage);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .stars {
+            color: var(--warm-gold);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--warm-gold), var(--soft-coral));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .author-info h4 {
+            color: var(--charcoal);
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .donation-amount {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+            color: var(--sage-green);
+            font-weight: 500;
+        }
+        
+        .about {
+            padding: 6rem 5%;
+            background: white;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--light-sage), var(--cream));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.2) 0%, transparent 70%);
+            animation: pulse 4s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-content > p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .credentials {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .credential {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #666;
+        }
+        
+        .credential-icon {
+            color: var(--sage-green);
+            font-size: 1.2rem;
+        }
+        
+        .faq {
+            padding: 6rem 5%;
+            background: var(--cream);
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--charcoal);
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: var(--light-sage);
+        }
+        
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--warm-gold);
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+            color: #666;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 240px;
+        }
+        
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--warm-gold);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-brand p {
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 1rem;
+            color: var(--warm-gold);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--warm-gold);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--warm-gold);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .donation-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .donation-option {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">Happy Life Key</a>
+        <ul class="nav-links">
+            <li><a href="#philosophy">ფილოსოფია</a></li>
+            <li><a href="#course">კურსი</a></li>
+            <li><a href="#how">როგორ მუშაობს</a></li>
+            <li><a href="#about">ჩემ შესახებ</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="floating-shapes">
+            <div class="shape shape-1">🌱</div>
+            <div class="shape shape-2">✨</div>
+            <div class="shape shape-3">🌻</div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">🎁 ტრანსფორმაცია შენი ბედნიერებისთვის</div>
+            <h1>აღმოაჩინე <span>ბედნიერი ცხოვრება</span> მადლიერებით</h1>
+            <p class="hero-subtitle">სრული 6-დღიანი კურსი აზროვნებაზე, თავდაჯერებულობაზე, სტრესის მართვასა და პროდუქტიულობაზე — როგორც ტრანსფორმაცია. წინასწარი გადახდის გარეშე. მხოლოდ შედეგებით.</p>
+            <div class="cta-group">
+                <a href="#course" class="btn-primary">დაიწყე ტრანსფორმაცია →</a>
+                <a href="#philosophy" class="btn-secondary">რატომ უფასოდ?</a>
+            </div>
+            <p class="transformation-note">1,000+ ადამიანმა აირჩია ბედნიერება • თუ გსურს, დასრულების შემდეგ შეგიძლია მადლიერებითა გამოხატო</p>
+        </div>
+    </section>
+
+    <section class="transformation-philosophy" id="philosophy">
+        <div class="container">
+            <h2>ეს ტრანსფორმაციაა და არა პროდუქტი</h2>
+            <p>მჯერა, რომ ბედნიერებას ფასის ეტიკეტი არ უნდა ჰქონდეს. სამყაროში, სადაც ყველაფერი გარიგებაა, მინდა შევქმნა სხვა სივრცე — სადაც შეგიძლია უბრალოდ მიიღო, განიკურნო და გაიზარდო.</p>
+            <p>ჩემი მისია მარტივია: მინდა ვიცხოვრო სამყაროში, სადაც სულ უფრო მეტი ადამიანი იქნება ბედნიერი. შენი ბედნიერება მეც მაბედნიერებს. ეს საკმარისია.</p>
+            
+            <div class="transformation-box">
+                <div class="transformation-box-icon">💛</div>
+                <h3>ტრანსფორმაციის შეთავაზება</h3>
+                <p>შენ იღებ სრულ კურსს როგორც ტრანსფორმაციას. დასრულების შემდეგ — თუ ასე იგრძნობ — შეგიძლია გააზიარო მხარდაჭერა შემოწირულობით. ეს არ არის გადახდა; ეს არის მონაწილეობა გულუხვობის წრეში, რომელიც სხვა ადამიანებსაც აძლევს ამ ტრანსფორმაციაზე წვდომას. ზოგი აძლევს 1 ლარს-ს, ზოგი ბევრად მეტს. ზოგიც , მხოლოდ მადლიერებას. ყველა მისაღებია.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how">
+        <div class="container">
+            <div class="section-header">
+                <h2>როგორ მუშაობს</h2>
+                <p>ბარიერების გარეშე. რთული პროცესის გარეშე. მხოლოდ სამი მარტივი ნაბიჯი.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>მიიღე ტრანსფორმაცია</h3>
+                    <p>შეიყვანე ელფოსტა და მიიღე დაუყოვნებელი წვდომა სრულ 6 დღიან კონტენტზე. ბარათი არ არის საჭირო. წინასწარი გადახდაც — არა.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>გარდაქმენ შენი ცხოვრება</h3>
+                    <p>გაიარე კურსი შენს ტემპში. ივარჯიშე მადლიერებაში. დაინახე, როგორ იზრდება აზროვნება, თავდაჯერება და სიმშვიდე.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>გააზიარე, რაც შეგიძლია</h3>
+                    <p>დასრულების შემდეგ (ან როცა მზად იქნები), გაიღე იმდენი, რამდენიც სწორი გეჩვენება. დაეხმარე, რომ ეს ტრანსფორმაცია შემდეგ ადამიანსაც მიუწვდებოდეს.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="course-content" id="course">
+        <div class="container">
+            <div class="section-header">
+                <h2>შენი 6-დღიანი გზა</h2>
+                <p>ყველაფერი, რაც გჭირდება უფრო ბედნიერი ცხოვრების ასაშენებლად ერთი მთავარი პრაქტიკით: მადლიერებით.</p>
+            </div>
+            <div class="modules">
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">01</span>
+                        <h3>მადლიერების საფუძველი</h3>
+                    </div>
+                    <div class="module-body">
+                        <ul>
+                            <li>მადლიერების მეცნიერება და საფუძვლები</li>
+                            <li>3-წუთიანი დილის რიტუალი</li>
+                            <li>ნეგატიურობის მიკერძოების გატეხვა</li>
+                            <li>მადლიერების „კუნთის“ გაძლიერება</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">02</span>
+                        <h3>ქვეცნობიერის თამაშები</h3>
+                    </div>
+                    <div class="module-body">
+                        <ul>
+                            <li>ფიქსირებულიდან ზრდის აზროვნებამდე</li>
+                            <li>გამოცდების გადაფასება „საჩუქრებად“</li>
+                            <li>„რა წავიდა კარგად“ პრაქტიკა</li>
+                            <li>სიმრავლის წრის შექმნა</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">03</span>
+                        <h3>თავდაჯერება დაფასებით</h3>
+                    </div>
+                    <div class="module-body">
+                        <ul>
+                            <li>თვითმადლიერება vs. ქედმაღლობა</li>
+                            <li>დაფასება შენი წარსული „მე“-სთვის</li>
+                            <li>სხეულის მადლიერების პრაქტიკები</li>
+                            <li>საკუთარი გამარჯვებების ხმამაღლა თქმა</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">04</span>
+                        <h3>სტრესის გარეშე ცხოვრება</h3>
+                    </div>
+                    <div class="module-body">
+                        <ul>
+                            <li>მადლიერება როგორც მყისიერი სიმშვიდე</li>
+                            <li>5 ემოციების დამიწების ტექნიკა</li>
+                            <li>რთული ადამიანები როგორც მასწავლებლები</li>
+                            <li>საღამოს „გათავისუფლების“ რიტუალი</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">05</span>
+                        <h3>პროდუქტიული ნაკადი</h3>
+                    </div>
+                    <div class="module-body">
+                        <ul>
+                            <li>მადლიერება ფოკუსისთვის</li>
+                            <li>პროცესის სიყვარული, არა მხოლოდ შედეგის</li>
+                            <li>გადავადების დაძლევა</li>
+                            <li>ენერგიის მართვა vs. დროის მართვა</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">06</span>
+                        <h3>მთელი ცხოვრების ბედნიერება</h3>
+                    </div>
+                    <div class="module-body">
+                        <ul>
+                            <li>გაუმჯობესებული მადლიერების პრაქტიკები</li>
+                            <li>ბედნიერების „ტრიგერების“ შექმნა</li>
+                            <li>მადლიერების გაზიარება სხვებთან</li>
+                            <li>შენი პერსონალური ბედნიერების სისტემა</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="donation-after" id="donate">
+        <div class="container">
+            <h2>გავაგრძელოთ ტრანსფორმაცია</h2>
+            <p>თუ ამ კურსმა ღირებულება შემატა შენს ცხოვრებას, შეგიძლია დაეხმარო სხვებსაც იგივე ტრანსფორმაციის მიღებაში. გაიღე იმდენი, რამდენიც გულუხვად, მაგრამ კომფორტულად გეჩვენება — ან უბრალოდ გაუზიარე ეს ადამიანს, ვისაც ახლა სჭირდება.</p>
+            
+            <div class="donation-options">
+                <div class="donation-option">
+                    <div class="label-top">შემოწირულობა</div>
+                    <div class="amount">1 ლარი</div>
+                    <div class="label">ბოლომდე ვერ დამაკმაყოფილა</div>
+                </div>
+                <div class="donation-option">
+                    <div class="label-top">შემოწირულობა</div>
+                    <div class="amount">6 ლარი</div>
+                    <div class="label">კარგი შეხსენება იყო</div>
+                </div>
+                <div class="donation-option">
+                    <div class="label-top">შემოწირულობა</div>
+                    <div class="amount">12 ლარი</div>
+                    <div class="label">ბევრი ვისწავლე, მადლიერი ვარ</div>
+                </div>
+                <div class="donation-option">
+                    <div class="label-top">შემოწირულობა</div>
+                    <div class="amount">სხვა</div>
+                    <div class="label">შენი არჩევანი</div>
+                </div>
+            </div>
+            
+            <div class="custom-donation">
+                <p>"8 ლარი გავიღე, რადგან ასე ვიგრძენი. კარგი შეგრძნება იყო, რომ წვლილი შემქონდა." — თიკო</p>
+                <input type="number" placeholder="შეიყვანე ნებისმიერი თანხა (ლარი)">
+                <button class="btn-donate">მადლიერებით მხარდაჭერა →</button>
+            </div>
+            
+            <p class="donation-note">ყველა შემოწირულობა ეხმარება, რომ ეს კურსი შემდეგ ადამიანისთვისაც უფასო დარჩეს. ზეწოლის გარეშე. დანაშაულის გრძნობის გარეშე. მხოლოდ მადლიერება.</p>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>მადლიერების ტრანსფორმაციები</h2>
+                <p>რას იტყვიან ადამიანები Happy Life Key-ის მიღების შემდეგ</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"სკეპტიკურად ვუყურებდი „უფასო“ კურსებს, მაგრამ მან რეალურად შემიცვალა ცხოვრება. დასრულების შემდეგ  დავეხმარე, რადგან მინდა სხვამაც იგრძნოს ის, რაც მე ვიგრძენი."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>მარია კ.</h4>
+                            <p>მარკეტინგის დირექტორი</p>
+                        </div>
+                    </div>
+                    <div class="donation-amount">გააზიარა: 15ლარი</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"წინასწარ არაფრის გადახდის საშუალება არ მქონდა. ამ კურსმა შემძინა ინსტრუმენტები, რომლებმაც ყველაზე რთული წელი გადამატანინა. როცა შევძელი, 5 გავიღე."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <h4>ლ. ტ.</h4>
+                            <p>უკვე დასაქმებული</p>
+                        </div>
+                    </div>
+                    <div class="donation-amount">გააზიარა: 25 ლარი</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"ის, რომ ეს „ტრანსფორმაციად“ იყო შეთავაზებული, მართლი აღმოჩნდა. არ მქონდა დანაშაულის გრძნობა, თითქოს „ფულს ვფლანგავდი“. მერე 50 გავიღე, რადგან ამ მისიას ძალიან ვგულშემატკივრობ."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>ანონიმური</h4>
+                            <p>პროგრამული ინჟინერი</p>
+                        </div>
+                    </div>
+                    <div class="donation-amount">გააზიარა: 50 ლარი</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        🌻
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h2>რატომ გთავაზობ ამას როგორც ტრანსფორმაციას</h2>
+                    <p>წლები დავხარჯე ბედნიერების დევნაში: მიღწევები, სტატუსი და ნივთები. არ გამოვიდა. მერე მივხვდი, რომ მადლიერება უბრალოდ „კარგი მანერები“  კი არაა — ეს არის ნეიროლოგიური სუპერძლიერება, რომელიც ტვინს სიხარულზე „გადაწყობს“.</p>
+                    <p>1,000-ზე მეტ ადამიანს  მინდა დავეხმარო, რომ საკუთარი თავისა და ცხოვრების მიმართ დამოკიდებულება გარდაქმნან. მაგრამ ხშირად ვხვდებოდი ადამიანებს, ვისაც კურსების შეძენა არ შეეძლო — ვინც იტანჯებოდა და ვისაც ეს ყველაზე მეტად სჭირდებოდა.</p>
+                    <p>ამიტომ ვკითხე საკუთარ თავს: რა მოხდება, თუ უბრალოდ... გავცემ? თუ ვენდობი, რომ ადამიანები გააზიარებენ იმას, რაც შეუძლიათ, როცა შეძლებენ? თუ შევქმნი რაღაცას გულუხვობაზე და არა გარიგებაზე?</p>
+                    <p><strong>ეს არის Happy Life Key.</strong> ნდობა ადამიანის სიკეთეზე. ტრანსფორმაცია შენი ბედნიერებისთვის. რადგან შენი სიხარული მეც მაბედნიერებს.</p>
+                    <div class="credentials">
+                        <div class="credential">
+                            <span class="credential-icon">✓</span>
+                            <span>ტრენინგი პოზიტიურ ფსიქოლოგიასა და mindful-პრაქტიკებში</span>
+                        </div>
+                        <div class="credential">
+                            <span class="credential-icon">✓</span>
+                            <span>1,000+ სტუდენტი ამ ტრანსფორმაციული მოდელით</span>
+                        </div>
+                        <div class="credential">
+                            <span class="credential-icon">✓</span>
+                            <span>ადრე: სტრესში, შფოთვაში, ზედმეტად მომთხოვნი და უბედური</span>
+                        </div>
+                        <div class="credential">
+                            <span class="credential-icon">✓</span>
+                            <span>ახლა: ცოცხალი მტკიცებულება, რომ მადლიერება მუშაობს</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>ხშირი კითხვები</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <span>მართლა უფასოა? სადაა „ხაფანგი“?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>მართლა უფასოა. „ხაფანგი“ არ არსებობს. სრულ 6-დღიან კურსს მაშინვე იღებ. ბარათი არ არის საჭირო. ერთადერთი „პირობა“ არის ნდობა — თუ ღირებულებას მიიღებ, როცა შეძლებ, დაეხმარები, რომ სხვებისთვისაც ხელმისაწვდომი დარჩეს.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>თუ დასრულების შემდეგაც ვერ შევძლებ შემოწირულობას?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>მაშინ არ გაიღო. მართლა. ეს ტრანსფორმაციაა და არა ვალი. შენი მადლიერება საკმარისია. სხვანაირად გამოხატე კეთილგანწყობა — გაუზიარე კურსი ადამიანს, ვისაც სჭირდება, ივარჯიშე პრაქტიკებში, ან უბრალოდ იცხოვრე უფრო ბედნიერად. ეს არის იდეა.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>რამდენ ხანს მექნება წვდომა?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>სამუდამოდ! ერთხელ რომ მიიღებ ტრანსფორმაციას, შენია მთელი სიცოცხლისთვის. დაბრუნდი მაშინ, როცა განახლება დაგჭირდება — ეს არის შენი ბედნიერების ინსტრუმენტების ნაკრები.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>ეს რელიგიურია ან სულიერი?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>არა. მადლიერება ბევრ ტრადიციაში გვხვდება, მაგრამ ეს კურსი დაფუძნებულია ნეირომეცნიერებასა და პოზიტიურ ფსიქოლოგიაზე. მუშაობს შენი რწმენის მიუხედავად (ან მის გარეშე).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>როგორ ინარჩუნებს ეს თავს?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>იმ ადამიანების გულუხვობით, ვინც კურსს ასრულებს და სურვილისამებრ აზიარებს მხარდაჭერას. საშუალოდ სტუდენტების დაახლოებით 40% იღებს გადაწყვეტილებას რაღაც თანხა გაიღოს. ზოგი 3 ლარს, ზოგიც 100-ს. საბოლოოდ ბალანსდება. ასევე, შენი მხარდაჭერა მეხმარება მეტი უფასო რესურსის შექმნაში.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Happy Life Key</h3>
+                    <p>ტრანსფორმაცია შენი ბედნიერებისთვის. სიხარული მრავლდება, როცა ვაზიარებთ.</p>
+                    <div class="social-links">
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="YouTube">▶️</a>
+                        <a href="#" title="TikTok">🎵</a>
+                        <a href="#" title="Email">✉️</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>ტრანსფორმაცია</h4>
+                    <ul>
+                        <li><a href="#course">კურსი</a></li>
+                        <li><a href="#how">როგორ მუშაობს</a></li>
+                        <li><a href="#">წარმატების ისტორიები</a></li>
+                        <li><a href="#">გააზიარე ტრანსფორმაცია</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>რესურსები</h4>
+                    <ul>
+                        <li><a href="#">უფასო მადლიერების გზამკვლევი</a></li>
+                        <li><a href="#">დილის რიტუალის PDF</a></li>
+                        <li><a href="#">პოდკასტი</a></li>
+                        <li><a href="#">ბლოგი</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>კონტაქტი</h4>
+                    <ul>
+                        <li><a href="#">დაგვიკავშირდი</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">კონფიდენციალურობა</a></li>
+                        <li><a href="#">პირობები</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Happy Life Key. Made with 💛 for anyone seeking happiness.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        document.querySelectorAll('.donation-option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.donation-option').forEach(o => o.style.borderColor = 'rgba(212, 165, 116, 0.3)');
+                option.style.borderColor = '#D4A574';
+            });
+        });
+    </script>
+</body>
+</html>
